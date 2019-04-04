@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:testPickers.ViewModel"
+             x:Class="testPickers.View.SearchPage">
+    <ContentPage.BindingContext>
+        <viewModel:SearchViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="AUTO"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                    <ColumnDefinition Width="33*"/>
+                </Grid.ColumnDefinitions>
+
+                <Picker ItemsSource="{Binding States}"
+                        Title="Select a provinces"
+                        ItemDisplayBinding="{Binding StateName}"
+                        SelectedItem="{Binding State}"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="Small"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"/>
+
+                <Picker ItemsSource="{Binding Cities}"
+                        ItemDisplayBinding="{Binding CityName}"
+                        SelectedItem="{Binding City}"
+                        Title="Select a city"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="Small"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"/>
+
+                <Picker ItemsSource="{Binding Towns}" 
+                        ItemDisplayBinding="{Binding TownName}"
+                        Title="Select a town"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand">
+                </Picker>
+
+            </Grid>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
